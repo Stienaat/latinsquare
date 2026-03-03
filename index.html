@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Latin Square</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+ 
+<main class="container">
+	<h1 style="margin:0px">Latin Square</h1>
+	<div class="game-wrapper">
+		<div class="toolbar">
+			<div class="toolbar-left">
+				<div class="levels">
+					<button id="lev1" class="btn level">LEV1</button>
+					<button id="lev2" class="btn level">LEV2</button>
+					<button id="lev3" class="btn level">LEV3</button>
+				</div>
+			</div>
+			<div class="toolbar-right"> 
+				<button id="jokerBtn" class="icon-btn">
+					<img src="images/joker.png" alt="Joker">
+				</button>
+
+				<button id="newGameBtn" class="icon-btn">
+					<img src="images/new.png" alt="Nieuw">
+				</button>
+
+				<button id="solutionBtn" class="icon-btn">
+					<img src="images/oog.png" alt="Oplossing">
+				</button>
+
+				<button id="langBtn" class="icon-btn">
+					<img src="images/NL.png" alt="Taal">
+				</button>
+
+				<button id="readmeBtn" class="icon-btn">
+					<img src="images/info.png" alt="Info">
+				</button>
+			</div>
+
+		</div>
+		<div id="messageBar" class="message">
+			<p id="messageText">Hoe speel je dit? -> Klik op info.</p>
+		</div>
+		<div id="board" class="board"></div>
+		<div class="bottom-block">
+			<div class="stats">
+    <div><span id="labelZetten">Zetten:</span> <span id="Zetten">0</span></div>
+    <div><span id="labelRows">Rijen:</span> <span id="rowsOk">0</span>/7</div>
+    <div><span id="labelCols">Kolommen:</span> <span id="colsOk">0</span>/7</div>
+    <div><span id="labelDiag">Diag:</span> <span id="diagStat"></span></div>
+</div>
+			<div class="logo-block">
+				<img src="images/logoFS.png" alt="FS Creations">
+				<h6 style="font-weight: normal; font-style:italic; margin: 0px;"> © 2026 FS creations. All rights reserved. Not for commercial use.</h6>
+			</div>	
+		</div>  
+	</div>
+</main>
+
+<canvas id="fireworksCanvas" class="hidden"></canvas>
+
+
+<!-- Modal -->
+<div id="modal" class="hidden">
+    <div id="modalContent">
+        <span id="modalClose">⏪ sluiten</span>
+        <div id="modalBody"></div>
+		<img style="height: 20px;" src="images/logoFS.png" alt="FS Creations">		
+    </div>
+</div>
+  <script src="engine.js"></script>
+  <script src="ui.js"></script>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("serviceWorker.js");
+  }
+</script>
+
+</body>
+</html>
