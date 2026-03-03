@@ -2,12 +2,12 @@ self.addEventListener("install", e => {
   e.waitUntil(
     caches.open("latin-square-v1").then(cache => {
       return cache.addAll([
-        "/latin_square/index.html",
-        "/latin_square/ui.js",
-        "/latin_square/engine.js",
-        "/latin_square/style.css",
-        "/latin_square/icons/icon-192.png",
-        "/latin_square/icons/icon-512.png"
+        "/latin-square/index.html",
+        "/latin-square/ui.js",
+        "/latin-square/engine.js",
+        "/latin-square/style.css",
+        "/latin-square/icons/icon-192.png",
+        "/latin-square/icons/icon-512.png"
       ]);
     })
   );
