@@ -20,7 +20,7 @@ const FILES_TO_CACHE = [
   "images/taal.png",
   "images/new.png",
   "images/logoFS.png",
-  "images/joker.png"
+  "images/joker.png",
 ];
 
 self.addEventListener("install", event => {
