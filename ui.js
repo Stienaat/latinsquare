@@ -23,19 +23,18 @@ let defaultMessage = {
 
 const texts = {
   NL: { help: "Joker", 
-  close: "Sluiten", 
   yes: "Ja", no: "Nee", 
   confirmNewGame: "Nieuw spel starten in dit level?", 
-  chooseLang: "Taal kiezen", 
+  chooseLang: "Kies een taal", 
   solution: "Oplossing", 
   new: "Nieuw spel", 
   confirmSolution: "Oplossing tonen?", 
   solved: "Opgelost!",
   hintActive: "Tegels met joker staan fout."},
   
-  FR: { help: "Joker", hintActive: "Les tuiles contenant une joker sont incorrectes.", close: "Fermer", yes: "Oui", no: "Non", confirmNewGame: "Recommencer une nouvelle partie ?", chooseLang: "Choisir la langue", solution: "Solution", new: "Nouveau jeu", confirmSolution: "Afficher la solution?", solved: "Résolu!" },
-  EN: { help: "Joker", hintActive: "Joker‑marked tiles break the rules.", close: "Close", yes: "Yes", no: "No", confirmNewGame: "Start a new game at this level?", chooseLang: "Choose language", solution: "Solution", new: "New game", confirmSolution: "Show solution?", solved: "Solved!" },
-  DE: { help: "Joker", hintActive: "Felder mit Joker sind falsch.", close: "Schließen", yes: "Ja", no: "Nein", confirmNewGame: "Neues Spiel auf diesem Level starten?", chooseLang: "Sprache wählen", solution: "Lösung", new: "Neues spiel", confirmSolution: "Lösung anzeigen?", solved: "Gelöst!" }
+  FR: { help: "Joker", hintActive: "Les tuiles contenant une joker sont incorrectes.",  yes: "Oui", no: "Non", confirmNewGame: "Recommencer une nouvelle partie ?", chooseLang: "Choisir une langue", solution: "Solution", new: "Nouveau jeu", confirmSolution: "Afficher la solution?", solved: "Résolu!" },
+  EN: { help: "Joker", hintActive: "Joker‑marked tiles break the rules.",  yes: "Yes", no: "No", confirmNewGame: "Start a new game at this level?", chooseLang: "Choose a language", solution: "Solution", new: "New game", confirmSolution: "Show solution?", solved: "Solved!" },
+  DE: { help: "Joker", hintActive: "Felder mit Joker sind falsch.",  yes: "Ja", no: "Nein", confirmNewGame: "Neues Spiel auf diesem Level starten?", chooseLang: "Sprache wählen", solution: "Lösung", new: "Neues spiel", confirmSolution: "Lösung anzeigen?", solved: "Gelöst!" }
 };
 
 const langFlagImg = {
@@ -50,14 +49,14 @@ const readmeText = {
   NL: `
     <h4>Hoe speel je dit spel?</h4>
     <p>* Ieder spel is altijd oplosbaar.<br>
-    * Vorm rijen en kolommen die bestaan uit 7 verschillende kleuren.<br>
+    * Vorm rijen en kolommen die bestaan uit 7 verschillen- de kleuren.<br>
     * Selecteer 2 tegels om ze van plaats te laten wisselen.<br>
     * Lev1: Rijen en kolommen mogen maximaal van elke kleur 1 tegel hebben.<br>
-    * Lev2: Idem maar aangevuld met de 2 grote diagonalen.<br>
+    * Lev2: Idem maar aangevuld met de 2 grote diagona- len.<br>
     * Lev3: Zoals 1, maar aangevuld met alle 14 diagonalen.<br>
     * Onderaan staat uw actuele score.<br>
-    * Zit u vast? Klik op de joker.<br>
-    * Te moeilijk? Klik op “oplossing”.<br>
+    * Zit u vast? Klik op de joker. Die toont U de foute tegels.<br>
+    * Lukt het niet? Twijfel je of de oplossing wel bestaat. Klik op “oplossing”.<br>
     * Succes.</p>
   `,
 
@@ -174,9 +173,6 @@ function applyLanguage() {
   if (lr) lr.textContent = labels[lang][1];
   if (lc) lc.textContent = labels[lang][2];
   if (ld) ld.textContent = labels[lang][3];
-  
-  // sluitknop readme
-  document.getElementById("modalClose").textContent = texts[lang].close;
 
 }
 
@@ -342,19 +338,33 @@ function handleClick(idx) {
 //  MESSAGES
 // =========================
 
-function showMessage(text, actionsHtml = "") {
-  messageBar.classList.add("visible");
-messageBar.innerHTML = `<span>${text}</span><div>${actionsHtml}</div>`;
+function showMessage(text, extraHTML = "") {
+  const bar = document.getElementById("messageBar");
+  const stats = document.getElementById("toolbar3");
 
+  bar.classList.add("visible");
+  bar.style.display = "flex";
+  bar.innerHTML = `
+    <span id="messageText">${text}</span>
+    ${extraHTML}
+  `;
+
+  if (stats) stats.style.display = "none";
 }
-
 
 function clearMessage() {
-  messageBar.classList.remove("visible");
-  messageBar.innerHTML = `<span id="messageText">${defaultMessage[lang]}</span>`;
+    showMessage(defaultMessage[lang]);
 }
 
-
+function saveGame() {
+    const data = {
+        board: board.cells,
+        level: level,
+        zetten: Zetten,
+        hints: Array.from(hintIndices)
+    };
+    localStorage.setItem("latinsquare-save", JSON.stringify(data));
+}
 
 // =========================
 //  NIEUW SPEL
@@ -429,18 +439,21 @@ window.onload = () => {
   langBtn = document.getElementById("langBtn");
   readmeBtn = document.getElementById("readmeBtn");
 
-  // Modal events
-  const closeBtn = document.getElementById("modalClose");
-  const modal = document.getElementById("modal");
+    /* Modal events */
+    const closeBtn = document.getElementById("modalClose");
+    const modal = document.getElementById("modal");
 
-  if (modal) {
-    modal.addEventListener("click", e => {
-      if (e.target.id === "modal") closeModal();
-    });
-  }
-  if (closeBtn) {
-    closeBtn.addEventListener("click", closeModal);
-  }
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeModal);
+    }
+
+    if (modal) {
+        modal.addEventListener("click", function(e) {
+            if (e.target.id === "modal") {
+                closeModal();
+            }
+        });
+    }
 
   // Taal toepassen
   applyLanguage();

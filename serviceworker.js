@@ -1,4 +1,4 @@
-const CACHE_NAME = "latinsquare-v2";
+const CACHE_NAME = "latinsquare-v1";
 
 const BASE_PATH = self.location.pathname.replace("serviceworker.js", "");
 
@@ -38,4 +38,3 @@ self.addEventListener("fetch", event => {
     })
   );
 });
-
