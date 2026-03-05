@@ -212,14 +212,17 @@ function showMessage(text, extraHTML = "") {
 
 function clearMessage() {
   const bar = document.getElementById("messageBar");
-  const stats = document.getElementById("toolbar3");
 
   bar.classList.remove("visible");
   bar.style.display = "none";
   bar.innerHTML = "";
 
-  if (stats) stats.style.display = "flex";
+  // Zet de default boodschap terug
+  setTimeout(() => {
+    showMessage(defaultMessage[lang]);
+  }, 10);
 }
+
 
 
 // =========================
@@ -367,7 +370,28 @@ window.onload = () => {
     render();
     showMessage(defaultMessage[lang]);
   }
+  updateLevelButtons();
 };
+
+function setLevel(n) {
+  level = n;
+  newGame();
+}
+
+
+function updateLevelButtons() {
+  const buttons = document.querySelectorAll(".level");
+  buttons.forEach(btn => {
+    const btnLevel = parseInt(btn.id.replace("lev", ""), 10);
+    if (btnLevel === level) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+}
+
+
 
 
 // =========================

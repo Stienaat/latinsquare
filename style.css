@@ -99,33 +99,25 @@ body {
   pointer-events: none;   /* klik gaat nog steeds naar cell */
 }
 
-.messageBar {
+.message {
+  height: 50px;               /* vaste hoogte */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 5px;
-  border-radius: 8px;
-  width: 100%;
-  background: transparent;       /* standaard onzichtbaar */
-  border: 1px solid transparent;
-  font-size: 1rem;
-  box-sizing: border-box;
-}
-
-.message.visible {
-  display: flex;
-  align-items: center;        /* alles mooi op 1 lijn */
-  justify-content: space-between; /* tekst links, vlaggen rechts */
   gap: 12px;
   background: #F2F2F2;
   border: 1px solid #FFCC80;
-  padding:10px;
-  min-height: 30px;              
+  padding: 0 10px;            /* geen verticale padding meer */
+  box-sizing: border-box;     /* padding telt mee in hoogte */
+  opacity: 1;
+  transition: opacity 0.15s;
 }
 
 .message.hidden {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
+
 
 .message button {
     background: transparent;
