@@ -20,26 +20,91 @@ let defaultMessage = {
   DE: "Wie spielt man? Klicken Sie auf Info."
 };
 
+
 const texts = {
-  NL: { help: "Joker", yes: "Ja", no: "Nee", confirmNewGame: "Nieuw spel starten in dit level?", chooseLang: "Kies een taal", solution: "Oplossing", new: "Nieuw spel", confirmSolution: "Oplossing tonen?", solved: "Opgelost!", hintActive: "Tegels met joker staan fout."},
-  FR: { help: "Joker", hintActive: "Les tuiles contenant une joker sont incorrectes.", yes: "Oui", no: "Non", confirmNewGame: "Recommencer une nouvelle partie ?", chooseLang: "Choisir une langue", solution: "Solution", new: "Nouveau jeu", confirmSolution: "Afficher la solution?", solved: "Résolu!" },
-  EN: { help: "Joker", hintActive: "Joker‑marked tiles break the rules.", yes: "Yes", no: "No", confirmNewGame: "Start a new game at this level?", chooseLang: "Choose a language", solution: "Solution", new: "New game", confirmSolution: "Show solution?", solved: "Solved!" },
-  DE: { help: "Joker", hintActive: "Felder mit Joker sind falsch.", yes: "Ja", no: "Nein", confirmNewGame: "Neues Spiel auf diesem Level starten?", chooseLang: "Sprache wählen", solution: "Lösung", new: "Neues spiel", confirmSolution: "Lösung anzeigen?", solved: "Gelöst!" }
+  NL: { help: "Joker", 
+  yes: "Ja", no: "Nee", 
+  confirmNewGame: "Nieuw spel starten ?", 
+  chooseLang: "Kies een taal", 
+  solution: "Oplossing", 
+  new: "Nieuw spel", 
+  confirmSolution: "Oplossing tonen?", 
+  solved: "Opgelost!",
+  hintActive: "Tegels met joker staan fout."},
+  
+  FR: { help: "Joker", hintActive: "Les tuiles contenant une joker sont incorrectes.",  yes: "Oui", no: "Non", confirmNewGame: "Recommencer une nouvelle partie ?", chooseLang: "Choisir une langue", solution: "Solution", new: "Nouveau jeu", confirmSolution: "Afficher la solution?", solved: "Résolu!" },
+  EN: { help: "Joker", hintActive: "Joker‑marked tiles break the rules.",  yes: "Yes", no: "No", confirmNewGame: "Start a new game at this level?", chooseLang: "Choose a language", solution: "Solution", new: "New game", confirmSolution: "Show solution?", solved: "Solved!" },
+  DE: { help: "Joker", hintActive: "Felder mit Joker sind falsch.",  yes: "Ja", no: "Nein", confirmNewGame: "Neues Spiel auf diesem Level starten?", chooseLang: "Sprache wählen", solution: "Lösung", new: "Neues spiel", confirmSolution: "Lösung anzeigen?", solved: "Gelöst!" }
 };
 
 const langFlagImg = {
-  NL: "images/NL.png",
-  FR: "images/FR.png",
-  EN: "images/EN.png",
-  DE: "images/DE.png"
+    NL: "images/NL.png",
+    FR: "images/FR.png",
+    EN: "images/EN.png",
+    DE: "images/DE.png"
 };
 
+
 const readmeText = {
-  NL: `<h4>Hoe speel je dit spel?</h4> ...`,
-  EN: `<h4>How to play this game?</h4> ...`,
-  FR: `<h4>Comment jouer à ce jeu ?</h4> ...`,
-  DE: `<h4>Wie spielt man dieses Spiel?</h4> ...`
+  NL: `
+    <h4>Hoe speel je dit spel?</h4>
+    <p>* Ieder spel is altijd oplosbaar.<br>
+    * Vorm rijen en kolommen die bestaan uit 7 verschillen- de kleuren.<br>
+    * Selecteer 2 tegels om ze van plaats te laten wisselen.<br>
+    * Lev1: Rijen en kolommen mogen maximaal van elke kleur 1 tegel hebben.<br>
+    * Lev2: Idem maar aangevuld met de 2 grote diagona- len.<br>
+    * Lev3: Zoals 1, maar aangevuld met alle 14 diagonalen.<br>
+    * Onderaan staat uw actuele score.<br>
+    * Zit u vast? Klik op de joker. Die toont U de foute tegels.<br>
+    * Lukt het niet? Twijfel je of de oplossing wel bestaat. Klik op “oplossing”.<br>
+    * Succes.</p>
+  `,
+
+  EN: `
+    <h4>How to play this game?</h4>
+    <p>* Every puzzle is solvable.<br>
+    * Create rows and columns with 7 different colors.<br>
+    * Select 2 tiles to swap them.<br>
+    * Level 1: Rows and columns may contain max 1 tile of each color.<br>
+    * Level 2: Same, plus the 2 main diagonals.<br>
+    * Level 3: Same as 1, plus all 14 diagonals.<br>
+    * Your score is shown at the bottom.<br>
+    * Stuck? Click the joker.<br>
+    * Too hard? Click “solution”.<br>
+    * Good luck.</p>
+  `,
+
+  FR: `
+    <h4>Comment jouer à ce jeu ?</h4>
+    <p>* Chaque puzzle est solvable.<br>
+    * Formez des lignes et colonnes avec 7 couleurs différentes.<br>
+    * Sélectionnez 2 tuiles pour les échanger.<br>
+    * Niveau 1 : lignes et colonnes max 1 tuile de chaque couleur.<br>
+    * Niveau 2 : idem + les 2 grandes diagonales.<br>
+    * Niveau 3 : idem + les 14 diagonales.<br>
+    * Votre score est affiché en bas.<br>
+    * Bloqué ? Cliquez sur le joker.<br>
+    * Trop difficile ? Cliquez sur “solution”.<br>
+    * Bonne chance.</p>
+  `,
+
+  DE: `
+    <h4>Wie spielt man dieses Spiel?</h4>
+    <p>* Jedes Puzzle ist lösbar.<br>
+    * Bilden Sie Reihen und Spalten mit 7 verschiedenen Farben.<br>
+    * Wählen Sie 2 Kacheln aus, um sie zu tauschen.<br>
+    * Level 1: Reihen und Spalten max. 1 Kachel pro Farbe.<br>
+    * Level 2: wie Level 1 + die 2 Hauptdiagonalen.<br>
+    * Level 3: wie Level 1 + alle 14 Diagonalen.<br>
+    * Ihr Punktestand steht unten.<br>
+    * Festgefahren? Joker klicken.<br>
+    * Zu schwer? “Lösung” klicken.<br>
+    * Viel Erfolg.</p>
+  `
 };
+
+  
+  // FR / DE kan je later toevoegen
 
 
 // =========================
@@ -49,7 +114,25 @@ const readmeText = {
 let boardEl, ZettenEl, rowsEl, colsEl, diagStatEl;
 let messageBar, jokerBtn, solutionBtn, langBtn, readmeBtn;
 
+document.addEventListener("DOMContentLoaded", () => {
+    const bar = document.getElementById("messageBar");
 
+    // Bestaat messageExtra al? Zo niet → maak hem aan
+    if (!document.getElementById("messageExtra")) {
+        const extra = document.createElement("span");
+        extra.id = "messageExtra";
+        bar.appendChild(extra);
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const bar = document.getElementById("messageBar");
+  if (!document.getElementById("messageExtra")) {
+    const extra = document.createElement("span");
+    extra.id = "messageExtra";
+    bar.appendChild(extra);
+  }
+});
 // =========================
 //  TAAL
 // =========================
@@ -57,6 +140,7 @@ let messageBar, jokerBtn, solutionBtn, langBtn, readmeBtn;
 function applyLanguage() {
   const t = texts[lang];
 
+  // Toolbar icons: alt + title
   const jokerImg = document.querySelector("#jokerBtn img");
   if (jokerImg) jokerImg.alt = t.help;
   document.getElementById("jokerBtn").title = t.help;
@@ -70,23 +154,26 @@ function applyLanguage() {
   document.getElementById("newGameBtn").title = t.new;
 
   const langImg = document.querySelector("#langBtn img");
-  if (langImg) {
-    langImg.src = langFlagImg[lang];
-    langImg.alt = lang;
-  }
+	if (langImg) {
+		langImg.src = langFlagImg[lang];
+		langImg.alt = lang;
+	}
   document.getElementById("langBtn").title = lang;
 
   const infoImg = document.querySelector("#readmeBtn img");
   if (infoImg) infoImg.alt = "Info";
   document.getElementById("readmeBtn").title = "Info";
 
+  // Level buttons
   document.getElementById("lev1").textContent = (lang === "EN" ? "LVL1" : "LEV1");
   document.getElementById("lev2").textContent = (lang === "EN" ? "LVL2" : "LEV2");
   document.getElementById("lev3").textContent = (lang === "EN" ? "LVL3" : "LEV3");
 
-  const msgEl = document.getElementById("messageText");
-  if (msgEl) msgEl.textContent = defaultMessage[lang];
 
+  const msgEl = document.getElementById("messageText");
+	if (msgEl) msgEl.textContent = defaultMessage[lang];
+
+  // Stats labels
   const labels = {
     NL: ["Zetten:", "Rijen:", "Kolommen:", "Diag:"],
     FR: ["Coups:", "Lignes:", "Colonnes:", "Diag:"],
@@ -94,11 +181,18 @@ function applyLanguage() {
     DE: ["Züge:", "Reihen:", "Spalten:", "Diag:"]
   };
 
-  document.getElementById("labelZetten").textContent = labels[lang][0];
-  document.getElementById("labelRows").textContent = labels[lang][1];
-  document.getElementById("labelCols").textContent = labels[lang][2];
-  document.getElementById("labelDiag").textContent = labels[lang][3];
+  const lm = document.getElementById("labelZetten");
+  const lr = document.getElementById("labelRows");
+  const lc = document.getElementById("labelCols");
+  const ld = document.getElementById("labelDiag");
+
+  if (lm) lm.textContent = labels[lang][0];
+  if (lr) lr.textContent = labels[lang][1];
+  if (lc) lc.textContent = labels[lang][2];
+  if (ld) ld.textContent = labels[lang][3];
+
 }
+
 
 
 // =========================
@@ -106,20 +200,25 @@ function applyLanguage() {
 // =========================
 
 function render() {
-  const cells = document.querySelectorAll(".cell");
-  cells.forEach((cell, i) => {
-    cell.classList.toggle("selected", i === selectedIdx);
-  });
+	const cells = document.querySelectorAll(".cell");
+	
+	  cells.forEach((cell, i) => {
+	  cell.classList.toggle("selected", i === selectedIdx);
+	});
 
   boardEl.innerHTML = "";
 
+  // Diag‑tekst één keer berekenen
   let diagText;
-  if (level === 1) diagText = "Diag:";
-  else if (level === 2) diagText = countValidMainDiagonals(board) + "/2";
-  else diagText = countValidWrapDiagonals(board) + "/14";
-
-  diagStatEl.textContent = diagText;
-
+  if (level === 1) {
+    diagText = "Diag:";
+  } else if (level === 2) {
+    diagText = countValidMainDiagonals(board) + "/2";
+  } else {
+    diagText = countValidWrapDiagonals(board) + "/14";
+  }
+  if (diagStatEl) diagStatEl.textContent = diagText;
+  
   board.cells.forEach((value, idx) => {
     const cell = document.createElement("div");
     cell.className = "cell";
@@ -143,18 +242,81 @@ function render() {
 
     cell.onclick = () => handleClick(idx);
     boardEl.appendChild(cell);
-  });
+	
+	});
 
   ZettenEl.textContent = Zetten;
   rowsEl.textContent = countValidRows(board);
   colsEl.textContent = countValidCols(board);
 }
 
+function showLevelChangeMessage(targetLevel) {
+  showMessage(
+    texts[lang].confirmNewGame,
+    `
+      <button id="confirmYes">${texts[lang].yes}</button>
+      <button id="confirmNo">${texts[lang].no}</button>
+    `
+  );
+
+  document.getElementById("confirmYes").onclick = () => {
+    level = targetLevel;
+    newGame();
+    updateLevelButtons();
+    clearMessage();
+  };
+
+  document.getElementById("confirmNo").onclick = clearMessage;
+}
+
 
 // =========================
-//  KLIKKEN / SWAPPEN
+//  LEVELS
 // =========================
 
+function setLevel(newLevel) {
+  if (newLevel === level) return;
+  if (Zetten > 0) return showLevelChangeMessage(newLevel);
+
+  level = newLevel;
+  updateLevelButtons();
+  newGame();
+}
+
+function updateLevelButtons() {
+  document.querySelectorAll(".level").forEach(btn => btn.classList.remove("active"));
+  document.getElementById("lev" + level).classList.add("active");
+}
+
+function showLevelChangeMessage(targetLevel) {
+  showMessage(
+    texts[lang].confirmNewGame,
+    `
+      <button id="confirmYes">${texts[lang].yes}</button>
+      <button id="confirmNo">${texts[lang].no}</button>
+    `
+  );
+
+  document.getElementById("confirmYes").onclick = () => {
+    level = targetLevel;
+    newGame();
+    updateLevelButtons();
+    clearMessage();
+  };
+
+  document.getElementById("confirmNo").onclick = clearMessage;
+}
+
+
+function hideMessage() {
+  messageBar.classList.remove("visible");
+  messageBar.innerHTML = "";
+}
+
+
+// =========================
+//  KLIKKEN, swappen
+// =========================
 function handleClick(idx) {
   if (hintIndices.size > 0) {
     hintIndices = new Set();
@@ -162,10 +324,11 @@ function handleClick(idx) {
   }
 
   if (selectedIdx === null) {
-    selectedIdx = idx;
-    render();
-    return;
-  }
+  selectedIdx = idx;
+  render();      // ← deze was je kwijt
+  return;
+}
+
 
   if (selectedIdx !== idx) {
     swapCells(board, selectedIdx, idx);
@@ -177,23 +340,27 @@ function handleClick(idx) {
 
   setTimeout(() => {
     const fouten = badTileIndices(board, level);
-
+  
     if (fouten.size === 0) {
+     
       showMessage(texts[lang].solved);
       startFireworks(() => {
-        const canvas = document.getElementById("fireworksCanvas");
-        canvas.classList.add("hidden");
-        canvas.style.display = "none";
-        render();
-      });
-      return;
+		const canvas = document.getElementById("fireworksCanvas");
+		canvas.classList.add("hidden");
+		canvas.style.background = "transparent";
+		canvas.style.display = "none";
+
+		render(); // UI opnieuw opbouwen
+	});
+
+      return; // STOP ALLES HIER
     }
 
+    // normale flow
     hintIndices = new Set();
     clearMessage();
   }, 50);
 }
-
 
 // =========================
 //  MESSAGES
@@ -205,38 +372,45 @@ function showMessage(text, extraHTML = "") {
 
   bar.classList.add("visible");
   bar.style.display = "flex";
-  bar.innerHTML = `<span id="messageText">${text}</span>${extraHTML}`;
+  bar.innerHTML = `
+    <span id="messageText">${text}</span>
+    ${extraHTML}
+  `;
 
   if (stats) stats.style.display = "none";
 }
 
 function clearMessage() {
-  const bar = document.getElementById("messageBar");
-
-  bar.classList.remove("visible");
-  bar.style.display = "none";
-  bar.innerHTML = "";
-
-  // Zet de default boodschap terug
-  setTimeout(() => {
     showMessage(defaultMessage[lang]);
-  }, 10);
 }
 
-
-
 // =========================
-//  SAVE / LOAD
+//  save
 // =========================
 
 function saveGame() {
-  const data = {
-    board: [...board.cells],
-    level: level,
-    zetten: Zetten,
-    hints: [...hintIndices]
+  const save = {
+    board: board,
+    moves: Zetten,
+    hintIndices: Array.from(hintIndices)
   };
-  localStorage.setItem("latinsquare-save", JSON.stringify(data));
+
+  localStorage.setItem("latinSquareSave", JSON.stringify(save));
+}
+
+
+function loadSavedGame() {
+  const data = localStorage.getItem("latinSquareSave");
+  if (!data) return false;
+
+  const save = JSON.parse(data);
+
+  board = save.board;
+  level = save.level;
+  Zetten = save.moves;
+  hintIndices = new Set(save.hintIndices);
+
+  return true;
 }
 
 function loadGame() {
@@ -259,20 +433,23 @@ function loadGame() {
   }
 }
 
-
 // =========================
 //  NIEUW SPEL
 // =========================
 
 function newGame() {
+  let solutionPattern
   clearMessage();
+
   showMessage(defaultMessage[lang]);
 
-  let solutionPattern;
-
-  if (level === 1) solutionPattern = genLevel1Solution();
-  else if (level === 2) solutionPattern = genLevel2Solution();
-  else solutionPattern = genLevel3Solution();
+  if (level === 1) {
+    solutionPattern = genLevel1Solution();
+  } else if (level === 2) {
+    solutionPattern = genLevel2Solution();
+  } else {
+    solutionPattern = genLevel3Solution();
+  }
 
   const swaps = level === 1 ? 30 : level === 2 ? 70 : 90;
 
@@ -294,7 +471,24 @@ function newGame() {
 
 
 // =========================
-//  INIT
+//  MODAL HELPERS
+// =========================
+
+function closeModal() {
+  const modal = document.getElementById("modal");
+  if (modal) modal.classList.add("hidden");
+}
+
+function openModal(contentHTML) {
+  const body = document.getElementById("modalBody");
+  const modal = document.getElementById("modal");
+  if (body) body.innerHTML = contentHTML;
+  if (modal) modal.classList.remove("hidden");
+}
+
+
+// =========================
+//  INIT — ALLES HIERBINNEN!
 // =========================
 
 window.onload = () => {
@@ -308,6 +502,22 @@ window.onload = () => {
   solutionBtn = document.getElementById("solutionBtn");
   langBtn = document.getElementById("langBtn");
   readmeBtn = document.getElementById("readmeBtn");
+  
+      /* Modal events */
+    const closeBtn = document.getElementById("modalClose");
+    const modal = document.getElementById("modal");
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeModal);
+    }
+
+    if (modal) {
+        modal.addEventListener("click", function(e) {
+            if (e.target.id === "modal") {
+                closeModal();
+            }
+        });
+    }
 
   applyLanguage();
 
@@ -392,10 +602,3 @@ function updateLevelButtons() {
 }
 
 
-
-
-// =========================
-//  AUTOSAVE BIJ AFSLUITEN
-// =========================
-
-window.addEventListener("beforeunload", saveGame);

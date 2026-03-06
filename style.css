@@ -12,24 +12,28 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 4px 0;      
-  gap: 4px;      ;
+  gap: 4px;      
+
 }
 .game-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
     margin-top: 2px;
     margin-bottom: 2px;
 }
 
-.toolbar {
+.toolbar {                          /* level bar  */
   display: grid;
   gap: 8px 14px;
   justify-content: center;
 }
 
-.levels {
+.levels { 							/* level btn's  */
   display: flex;
   align-items: center; 
   gap: 50px;
-  margin: 15px;
+  margin: 5px;
   height: 28px;
   justify-content: center;
   width: min(90vw, 420px);
@@ -72,22 +76,20 @@ body {
   opacity: 0.4;
   cursor: default;
 }
-.toolbar2 {
+.toolbar2 {								/* icon btn's Joker etc ... */
   display: grid;
-  gap: 8px 14px;
+  padding-left: 10px;
+  padding-riht: 10px;
   justify-content: center;
+  background: rgba(0, 255, 0, 0.2);
 }
 
-.icons {
+.icons {								/*  icons in toolber 2   */
   display: flex;
   align-items: center; 
-  margin: 15px;
+  margin: 5px;
   justify-content: space-between;
   width: min(90vw, 420px);
-}
-.icons img{
-  height: 10px !important;
-  width: auto !important;
 }
 
 .joker {
@@ -98,26 +100,63 @@ body {
   justify-content: center;
   pointer-events: none;   /* klik gaat nog steeds naar cell */
 }
-
-.message {
-  height: 50px;               /* vaste hoogte */
+.joker img {
+  width: 50%;
+  opacity: 0.9;
+}
+.BtnJoker {
+  background: transparent;
+  border: none;
+  padding: 0;
+  height: 32px;
+  width: 32px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  background: #F2F2F2;
-  border: 1px solid #FFCC80;
-  padding: 0 10px;            /* geen verticale padding meer */
-  box-sizing: border-box;     /* padding telt mee in hoogte */
-  opacity: 1;
-  transition: opacity 0.15s;
+  justify-content: center;
+}
+
+.BtnJoker img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.9;
+}
+
+.joker-icon {
+  margin: 0px;
+  width: 30px;
+  height: 30px;
+  pointer-events: none; /* zodat klikken op de afbeelding de knop activeert */
+}
+
+.message {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    height: 40px;
+    min-height: 40px;
+    flex-shrink: 0;
+    padding: 0 10px;
+    border: 1px solid #FFCC80;
+    box-sizing: border-box;
+	transition: none;
 }
 
 .message.hidden {
   opacity: 0;
   pointer-events: none;
 }
-
+#messageText {
+    height: 40px;
+	white-space: nowrap;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+#messageExtra {
+  display: flex;
+  gap: 8px;      /* afstand tussen Ja en Nee */
+  align-items: center;
+}
 
 .message button {
     background: transparent;
@@ -128,12 +167,6 @@ body {
     padding: 4px 10px;
     font-size: 16px;
     display: inline-block;
-}
-
-
-.joker img {
-  width: 50%;
-  opacity: 0.9;
 }
 
 .lang-select {
@@ -190,6 +223,67 @@ body {
   background: #FFE0B2; /* zachte oranje tint */
 }
 
+#toolbar3 {											/*   stats   */
+    display: none; /* start onzichtbaar */
+    width: 100%;
+    max-width: 420px;
+    margin: 6px auto;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.stats img {
+    width: 40px;
+    height: 40px;
+}
+
+.icon-btn {
+    width: 25px;
+    height: auto;
+    padding: 0;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;cursor:pointer;	
+}
+
+.icon-btn img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block;
+    pointer-events: none;
+}
+.icon-btn:hover { 
+	transform: scale(1.15); 
+	opacity: 0.8;
+}
+.lang-select button img { 
+  height: 18px;   /* bv */
+  width: auto;    /* behoud verhouding */
+}
+.toolbar4 {										/* LogoFS   */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+}
+#logo {
+    width: min(30vw, 60px);
+    height: auto;
+	padding: 2px 0;
+}
 #modal {
     position: fixed;
     inset: 0;
@@ -234,13 +328,6 @@ body {
     cursor: pointer;
 }
 
-#logo {
-    width: min(30vw, 60px);
-    height: auto;
-	padding: 2px 0;
-}
-
-
 #fireworksCanvas {
     position: fixed;
     top: 0;
@@ -252,89 +339,6 @@ body {
     background: rgba(0,0,0,0.95); /* donkere achtergrond */
 }
 
-
 #fireworksCanvas.hidden {
     display: none;
-}
-
-.BtnJoker {
-  background: transparent;
-  border: none;
-  padding: 0;
-  height: 32px;
-  width: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.BtnJoker img {
-  width: 22px;
-  height: 22px;
-  opacity: 0.9;
-}
-
-.joker-icon {
-  margin: 0px;
-  width: 30px;
-  height: 30px;
-
-  pointer-events: none; /* zodat klikken op de afbeelding de knop activeert */
-}
-
-#toolbar3 {
-    display: none; /* start onzichtbaar */
-    width: 100%;
-    max-width: 420px;
-    margin: 6px auto;
-    display: flex !important;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.stats {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-}
-
-.stats img {
-    width: 40px;
-    height: 40px;
-}
-
-.icon-btn {
-    width: 45px;
-    height: auto;
-    padding: 0;
-    border: none;
-    background: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;cursor:pointer;	
-}
-
-.icon-btn img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    display: block;
-    pointer-events: none;
-}
-.icon-btn:hover { 
-	transform: scale(1.15); 
-	opacity: 0.8;
-}
-.lang-select button img { 
-  height: 18px;   /* bv */
-  width: auto;    /* behoud verhouding */
-}
-.toolbar4 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    text-align: center;
 }
