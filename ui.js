@@ -103,10 +103,6 @@ const readmeText = {
   `
 };
 
-  
-  // FR / DE kan je later toevoegen
-
-
 // =========================
 //  DOM ELEMENTEN
 // =========================
@@ -193,8 +189,6 @@ function applyLanguage() {
 
 }
 
-
-
 // =========================
 //  RENDER
 // =========================
@@ -269,7 +263,6 @@ function showLevelChangeMessage(targetLevel) {
   document.getElementById("confirmNo").onclick = clearMessage;
 }
 
-
 // =========================
 //  LEVELS
 // =========================
@@ -325,7 +318,7 @@ function handleClick(idx) {
 
   if (selectedIdx === null) {
   selectedIdx = idx;
-  render();      // ← deze was je kwijt
+  render();    
   return;
 }
 
@@ -333,6 +326,7 @@ function handleClick(idx) {
   if (selectedIdx !== idx) {
     swapCells(board, selectedIdx, idx);
     Zetten++;
+	saveGame();
   }
   selectedIdx = null;
 
@@ -350,13 +344,13 @@ function handleClick(idx) {
 		canvas.style.background = "transparent";
 		canvas.style.display = "none";
 
-		render(); // UI opnieuw opbouwen
+		render();   // UI opnieuw opbouwen
 	});
 
-      return; // STOP ALLES HIER
+      return; 		// STOP ALLES HIER
     }
 
-    // normale flow
+					// normale flow
     hintIndices = new Set();
     clearMessage();
   }, 50);
@@ -388,50 +382,51 @@ function clearMessage() {
 //  save
 // =========================
 
+// =========================
+//  SAVE / LOAD (V1.1)
+// =========================
+
+const SAVE_KEY = "latinsquare-v1-save";
+
 function saveGame() {
-  const save = {
-    board: board,
-    moves: Zetten,
-    hintIndices: Array.from(hintIndices)
+  const data = {
+    board: [...board.cells],   // alleen de array opslaan
+    level: level,
+    zetten: Zetten,
+    hints: Array.from(hintIndices)
   };
 
-  localStorage.setItem("latinSquareSave", JSON.stringify(save));
-}
-
-
-function loadSavedGame() {
-  const data = localStorage.getItem("latinSquareSave");
-  if (!data) return false;
-
-  const save = JSON.parse(data);
-
-  board = save.board;
-  level = save.level;
-  Zetten = save.moves;
-  hintIndices = new Set(save.hintIndices);
-
-  return true;
+  try {
+    localStorage.setItem(SAVE_KEY, JSON.stringify(data));
+  } catch (e) {
+    console.warn("Kon spel niet opslaan:", e);
+  }
 }
 
 function loadGame() {
-  const raw = localStorage.getItem("latinsquare-save");
+  const raw = localStorage.getItem(SAVE_KEY);
   if (!raw) return false;
 
   try {
     const data = JSON.parse(raw);
 
+    // board herstellen
     board.cells = [...data.board];
-    level = data.level;
-    Zetten = data.zetten;
-    hintIndices = new Set(data.hints || []);
+
+    // overige state
+    level = data.level ?? 1;
+    Zetten = data.zetten ?? 0;
+    hintIndices = new Set(data.hints ?? []);
     selectedIdx = null;
 
     updateLevelButtons();
     return true;
-  } catch {
+  } catch (e) {
+    console.warn("Kon save niet laden:", e);
     return false;
   }
 }
+
 
 // =========================
 //  NIEUW SPEL
@@ -576,17 +571,24 @@ window.onload = () => {
   newGame();
 
   // Daarna proberen laden
-  if (loadGame()) {
-    render();
-    showMessage(defaultMessage[lang]);
-  }
+	if (loadGame()) {
+	  render();
+	  showMessage(defaultMessage[lang]);
+	} else {
+	  newGame();
+	}
+
   updateLevelButtons();
 };
 
-function setLevel(n) {
-  level = n;
-  newGame();
+function setLevel(targetLevel) {
+  // zelfde level? niks doen
+  if (targetLevel === level) return;
+
+  // altijd eerst de confirm tonen
+  showLevelChangeMessage(targetLevel);
 }
+
 
 
 function updateLevelButtons() {

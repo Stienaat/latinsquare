@@ -313,7 +313,7 @@ function duplicateIndicesOf(lineIndices, b) {
   const buckets = new Map();
   for (const idx of lineIndices) {
     const v = b.cells[idx];
-	if (v === 0) continue;   // lege cellen overslaan
+	
 	if (!buckets.has(v)) buckets.set(v, []);
 	buckets.get(v).push(idx);
 

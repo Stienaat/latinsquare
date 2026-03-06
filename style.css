@@ -150,6 +150,7 @@ body {
 	white-space: nowrap;
     flex-shrink: 0;
     display: flex;
+	font-weight: bold;
     align-items: center;
 }
 #messageExtra {
@@ -185,14 +186,31 @@ body {
   transform: scale(1.15);
 }
 
-.board {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  width: 98%;
-  aspect-ratio: 1 / 1;
-  gap: 6px;
-  margin: 5px;
+#board {
+  display: grid !important;
+  grid-template-columns: repeat(7, 40px) !important;
+  grid-template-rows: repeat(7, 40px) !important;
+  gap: 4px !important;
+  margin: 20px auto !important;
+  width: max-content !important;
+  background: #f8f8f8 !important;
+  padding: 10px !important;
+  border: 1px solid #ccc !important;
 }
+
+.tile {
+  width: 30px !important;
+  height: 30px !important;
+  background: #eee !important;
+  border: 1px solid #aaa !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+}
+
+
 
 .cell {
   background: white;
