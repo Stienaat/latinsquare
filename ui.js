@@ -2,9 +2,10 @@
 //  GLOBALE CONSTANTEN
 // =========================
 
+//  rood  blauw  groen   geel   paars   oranje   bleekblauw
 const palette = [
   "#E53935", "#1E88E5", "#43A047",
-  "#FDD835", "#8E24AA", "#FB8C00", "#79B4DD"
+  "#FDD835", "#8E24AA", "#FB8C00", "#FFC0CB"
 ];
 
 let selectedIdx = null;
@@ -377,10 +378,6 @@ function showMessage(text, extraHTML = "") {
 function clearMessage() {
     showMessage(defaultMessage[lang]);
 }
-
-// =========================
-//  save
-// =========================
 
 // =========================
 //  SAVE / LOAD (V1.1)
