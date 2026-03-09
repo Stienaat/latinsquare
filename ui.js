@@ -172,7 +172,7 @@ function applyLanguage() {
 
   // Stats labels
   const labels = {
-    NL: ["Zetten:", "Rijen:", "Kolommen:", "Diag:"],
+    NL: ["Zetten:", "Rij:", "Kolom:", "Diag:"],
     FR: ["Coups:", "Lignes:", "Colonnes:", "Diag:"],
     EN: ["Moves:", "Rows:", "Columns:", "Diag:"],
     DE: ["Züge:", "Reihen:", "Spalten:", "Diag:"]
