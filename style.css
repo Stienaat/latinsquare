@@ -167,8 +167,8 @@ body {
 
 #board {
   display: grid !important;
-  grid-template-columns: repeat(7, 40px) !important;
-  grid-template-rows: repeat(7, 40px) !important;
+  grid-template-columns: repeat(7, 35px) !important;
+  grid-template-rows: repeat(7, 35px) !important;
   gap: 4px !important;
   margin: 20px auto !important;
   width: max-content !important;

@@ -1,4 +1,4 @@
-# Latin Square – V2.1
+# Latin Square – V1.1
 
 Een 7×7 Latin Square puzzelspel met drie moeilijkheidsgraden, joker‑hints, oplossing‑weergave, taalkeuze en automatische opslag.  
 Volledig client‑side, geen server nodig.
@@ -56,6 +56,5 @@ Vorm een geldige Latin Square:
 
 © 2026 FS creations.  
 Niet voor commercieel gebruik.
-
 
 
