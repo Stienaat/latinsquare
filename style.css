@@ -1,71 +1,46 @@
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
-  background: #F2F2F2;
+  background: #E2F2F2;
   display: flex;
   flex-direction: column;
 }
-
 .container {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4px 0;      
-  gap: 4px;      
-
+  gap: 10px;
+  padding: 10px 0;
 }
 .game-wrapper {
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
     margin-top: 2px;
     margin-bottom: 2px;
 }
 
 .toolbar {                          /* level bar  */
-  display: grid;
-  gap: 8px 14px;
-  justify-content: center;
-}
-
-.levels { 							/* level btn's  */
   display: flex;
-  align-items: center; 
-  gap: 50px;
-  margin: 5px;
-  height: 28px;
+  gap: 8px 4px;
   justify-content: center;
-  width: min(90vw, 420px);
-}
-
-.btn.level {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;          /* of jouw gewenste hoogte */
-    padding: 0 12px;       /* horizontale padding ok */
-    line-height: normal;   /* reset line-height */
 }
 
 .level.active {
-  background: #FF9800; /* SelectedBg */
+	background: #FF9800; 	/* SelectedBg */
+	color: white;
 }
 
-.btn {
-  font-size: 14px;
-  line-height: 32px;      /* voorkomt hoge knoppen */
-  max-height: 25px;       /* consistent, compact */
-  white-space: nowrap;    /* geen rare breaks */
-  border: none;
-  margin-top: 0px;
-  background: #A5200A; 
-  color: white;
-  border-radius: 8px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s ease;
+.btn {								/* level btn's  */
+    padding: 4px 8px;
+    margin: 10px;
+	max-height:10 px;
+    font-size: 14px;
+	border: 0px solid red;
+	border-radius:6px;
+	background-color: #A52A00;
+    cursor: pointer;
+	color:white;
 }
 
 .btn:hover {
@@ -76,20 +51,24 @@ body {
   opacity: 0.4;
   cursor: default;
 }
-.toolbar2 {								/* icon btn's Joker etc ... */
-  display: grid;
-  padding-left: 10px;
-  padding-riht: 10px;
-  justify-content: center;
+.toolbar2 {								/* statusbar icon btn's Joker etc ... */
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 4px 14px;
+  line-height: 1.2; 
   background: rgba(0, 255, 0, 0.2);
+  overflow-x: hidden;
 }
 
 .icons {								/*  icons in toolber 2   */
   display: flex;
   align-items: center; 
-  margin: 5px;
-  justify-content: space-between;
-  width: min(90vw, 420px);
+  gap: 40px;
+  margin: 15px;
+  height: 28px;
+  justify-content: center;
+  width: min(90vw,300px);
 }
 
 .joker {

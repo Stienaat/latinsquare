@@ -162,9 +162,9 @@ function applyLanguage() {
   document.getElementById("readmeBtn").title = "Info";
 
   // Level buttons
-  document.getElementById("lev1").textContent = (lang === "EN" ? "LVL1" : "LEV1");
-  document.getElementById("lev2").textContent = (lang === "EN" ? "LVL2" : "LEV2");
-  document.getElementById("lev3").textContent = (lang === "EN" ? "LVL3" : "LEV3");
+  document.getElementById("lev1").textContent = (lang === "EN" ? "LVL1" : "Lev1");
+  document.getElementById("lev2").textContent = (lang === "EN" ? "LVL2" : "Lev2");
+  document.getElementById("lev3").textContent = (lang === "EN" ? "LVL3" : "Lev3");
 
 
   const msgEl = document.getElementById("messageText");
