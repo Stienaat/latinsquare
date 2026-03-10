@@ -4,8 +4,8 @@
 
 //  rood  blauw  groen   geel   paars   oranje   bleekblauw
 const palette = [
-  "#E53935", "#1E88E5", "#43A047",
-  "#FDD835", "#8E24AA", "#FB8C00", "#FFC0CB"
+  "#DC3545", "#00AFF0", "#00FF00",
+  "#FFFF00", "#6610F2", "#FFC107", "#ADB5BD"
 ];
 
 let selectedIdx = null;
@@ -130,6 +130,16 @@ document.addEventListener("DOMContentLoaded", () => {
     bar.appendChild(extra);
   }
 });
+
+
+document.addEventListener('touchmove', function (e) {
+    if (e.scale !== 1) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+
+
 // =========================
 //  TAAL
 // =========================
