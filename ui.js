@@ -15,7 +15,7 @@ let hintIndices = new Set();
 let lang = "NL";
 
 let defaultMessage = {
-  NL: "Hoe speel je dit? Klik op info voor wat uitleg.",
+  NL: "Hoe speel je dit? → Klik op info.",
   FR: "Comment jouer? Cliquez sur info.",
   EN: "How to play? Click info.",
   DE: "Wie spielt man? Klicken Sie auf Info."
@@ -29,7 +29,7 @@ const texts = {
   chooseLang: "Kies een taal", 
   solution: "Oplossing", 
   new: "Nieuw spel", 
-  confirmSolution: "Wil je de Oplossing zien ?", 
+  confirmSolution: "Wil je de oplossing zien ?", 
   solved: "Opgelost!",
   hintActive: "Tegels met joker staan fout."},
   

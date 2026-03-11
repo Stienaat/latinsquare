@@ -108,72 +108,83 @@ body {
   pointer-events: none; /* zodat klikken op de afbeelding de knop activeert */
 }
 
-.message {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    flex-shrink: 0;
-    padding: 10 10px;
-    border: 1px solid #FFCC80;
-    box-sizing: border-box;
-
+/* De messagebar zelf */
+#messageBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 325px;
+  margin: 0 auto;
+  padding: 5px;
+  border: 1px solid orange;
 }
 
-.message.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
+/* De hoofdtekst */
 #messageText {
-    height: 40px;
-	white-space: nowrap;
-    flex-shrink: 0;
-    display: flex;
-	font-weight: bold;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  gap: 4px;                          /* afstand tussen JA en NEE */
+  justify-content: flex-end;         /* rechts uitlijnen */
+  align-items: center;
+
 }
+
+/* De container voor extra knoppen */
 #messageExtra {
   display: flex;
-  gap: 4px;      /* afstand tussen Ja en Nee */
-  align-items: center;
+  gap: 10px;                 /* afstand tussen JA en NEE */
+  justify-content: flex-end; /* rechts uitlijnen */
+  max-width: 120px;          /* DIT is de fix */
 }
 
-.message button {
-    padding: 2px 14px;
-    margin: 10px;
-	height:50 px;
-    font-size: 14px;
-	border: 0px solid red;
-	border-radius:6px;
-	background-color: red;
-    cursor: pointer;
-	color:white;
-}
-.confirmYes {
-	background-color: green;
+/* JA/NEE knoppen */
+
+
+#confirmYes {
+  background: #2ecc71;
+  color: white;
+  padding: 2px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 600;
 }
 
+#confirmNo {
+  background: #e74c3c;
+  color: white;
+  padding: 2px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Taalvlaggen */
 .lang-select {
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
 .lang-select button {
-  background: transparent;
+  background: none;
   border: none;
-  font-size: 20px;
   cursor: pointer;
 }
 
-.lang-select button:hover {
-  transform: scale(1.15);
+.lang-select img {
+  width: 40px;
+  height: 40px;
 }
 
-.stats {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-	padding: 10px;
-    justify-content: space-between;
+
+.lang-select button:hover {
+  transform: scale(1.15);
 }
 
 #board {
