@@ -216,7 +216,7 @@ function render() {
   // Diag‑tekst één keer berekenen
   let diagText;
   if (level === 1) {
-    diagText = "Diag:";
+    diagText = "-";
   } else if (level === 2) {
     diagText = countValidMainDiagonals(board) + "/2";
   } else {

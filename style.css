@@ -111,14 +111,12 @@ body {
 .message {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    height: 40px;
-    min-height: 40px;
+    gap: 8px;
     flex-shrink: 0;
-    padding: 0 10px;
+    padding: 10 10px;
     border: 1px solid #FFCC80;
     box-sizing: border-box;
-	transition: none;
+
 }
 
 .message.hidden {
@@ -150,6 +148,9 @@ body {
     cursor: pointer;
 	color:white;
 }
+.confirmYes {
+	background-color: green;
+}
 
 .lang-select {
   display: flex;
@@ -175,27 +176,14 @@ body {
     justify-content: space-between;
 }
 
-
 #board {
   display: grid !important;
-  grid-template-columns: repeat(7, 35px) !important;
-  grid-template-rows: repeat(7, 35px) !important;
+  grid-template-columns: repeat(7, 40px) !important;
+  grid-template-rows: repeat(7, 40px) !important;
   gap: 4px !important;
   margin: 10px auto !important;
   width: max-content !important;
 
-}
-
-.tile {
-  width: 30px !important;
-  height: 30px !important;
-  background: #000 !important;
-  border: 1px solid #000 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 20px !important;
-  cursor: pointer !important;
 }
 
 .cell {
@@ -267,18 +255,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+	margin: 20px;
     text-align: center;
 }
-#logo {
-    width: min(30vw, 60px);
-    height: auto;
-	padding: 2px 0;
-}
+
 #modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
