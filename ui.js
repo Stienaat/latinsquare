@@ -25,11 +25,11 @@ let defaultMessage = {
 const texts = {
   NL: { help: "Joker", 
   yes: "Ja", no: "Nee", 
-  confirmNewGame: "Nieuw spel starten ?", 
+  confirmNewGame: "Wil je een nieuw spel ?", 
   chooseLang: "Kies een taal", 
   solution: "Oplossing", 
   new: "Nieuw spel", 
-  confirmSolution: "Oplossing tonen?", 
+  confirmSolution: "Wil je de Oplossing zien ?", 
   solved: "Opgelost!",
   hintActive: "Tegels met joker staan fout."},
   

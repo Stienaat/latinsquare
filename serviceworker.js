@@ -1,4 +1,4 @@
-const CACHE_NAME = "latinsquare-v7";
+const CACHE_NAME = "latinsquare-v8";
 
 const BASE_PATH = self.location.pathname.replace("serviceworker.js", "");
 

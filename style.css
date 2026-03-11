@@ -110,7 +110,7 @@ body {
 
 .message {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 12px;
     height: 40px;
     min-height: 40px;
@@ -135,19 +135,20 @@ body {
 }
 #messageExtra {
   display: flex;
-  gap: 8px;      /* afstand tussen Ja en Nee */
+  gap: 4px;      /* afstand tussen Ja en Nee */
   align-items: center;
 }
 
 .message button {
-    background: transparent;
-    border: none;
-    color: #E65100;
+    padding: 2px 14px;
+    margin: 10px;
+	height:50 px;
+    font-size: 14px;
+	border: 0px solid red;
+	border-radius:6px;
+	background-color: red;
     cursor: pointer;
-    font-weight: 600;
-    padding: 4px 10px;
-    font-size: 16px;
-    display: inline-block;
+	color:white;
 }
 
 .lang-select {
@@ -170,14 +171,10 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-	padding-left: 10px;
+	padding: 10px;
     justify-content: space-between;
 }
 
-.stats img {
-    width: 40px;
-    height: 40px;
-}
 
 #board {
   display: grid !important;
@@ -186,16 +183,14 @@ body {
   gap: 4px !important;
   margin: 10px auto !important;
   width: max-content !important;
-  background: #f8f8f8 !important;
-  padding: 10px !important;
-  border: 1px solid #ccc !important;
+
 }
 
 .tile {
   width: 30px !important;
   height: 30px !important;
-  background: #eee !important;
-  border: 1px solid #aaa !important;
+  background: #000 !important;
+  border: 1px solid #000 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -229,7 +224,7 @@ body {
 }
 
 .cell.selected {
-  background: #FFE0B2; /* zachte oranje tint */
+  background: orange; /* zachte oranje tint */
 }
 
 #toolbar3 {											/*   stats   */
