@@ -5,7 +5,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .container {
   flex: 1;
   display: flex;
@@ -19,12 +18,15 @@ body {
     flex-direction: column;
     margin-top: 2px;
     margin-bottom: 2px;
+	border: 1px solid red;
+	border-radius: 10px;
 }
-
 .toolbar {                          /* level bar  */
-  display: flex;
-  gap: 8px 4px;
-  justify-content: center;
+	display: flex;
+	gap: 8px 4px;
+	justify-content: space-between;
+	padding-left : 30px;
+	padding-right : 40px;
 }
 
 .level.active {
@@ -54,7 +56,7 @@ body {
 }
 .toolbar2 {								/* statusbar icon btn's Joker etc ... */
   width: 100%;
-  height: auto;
+  height: 68px;
   box-sizing: border-box;
   padding: 4px 4px;
   line-height: 1.0; 
@@ -189,8 +191,8 @@ body {
 
 #board {
   display: grid !important;
-  grid-template-columns: repeat(7, 40px) !important;
-  grid-template-rows: repeat(7, 40px) !important;
+  grid-template-columns: repeat(7, 45px) !important;
+  grid-template-rows: repeat(7, 45px) !important;
   gap: 4px !important;
   margin: 10px auto !important;
   width: max-content !important;
