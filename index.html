@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Latin Square</title>
 	<link rel="stylesheet" href="lsquare.css" />
-	<script src="ui.js?v=20260306"></script>
+
 	<script src="engine.js?v=20260306"></script>
 
     <link rel="manifest" href="manifest.json">
@@ -21,6 +21,8 @@
 				<button id="lev1" class="btn level">LEV1</button>
 				<button id="lev2" class="btn level">LEV2</button>
 				<button id="lev3" class="btn level">LEV3</button>
+				<button id="displayToggle" style="font-size:25px; border: none">🎨</button>
+
 			</div>
 		</div>
 
@@ -70,13 +72,12 @@
 
 <!-- Modal -->
 <div id="modal" class="hidden">
-    <div id="modalContent">
-	
-		<h6>V1.2</h6>
+    <div id="modalContent">	
+		<img style="height: 30px;" src="images/logoFS.png" alt="FS Creations">		
+		<h6>Latin Square V1.2</h6>
 		<button id="modalClose" style="margin:10px";><img src="images/sluiten.png" alt="close"></button>	
         <div id="modalBody"></div>
-		<img style="height: 30px;" src="images/logoFS.png" alt="FS Creations">		
-    </div>
+	    </div>
 </div>
 
 
@@ -85,6 +86,6 @@
     navigator.serviceWorker.register("serviceworker.js");
   }
 </script>
-
+	<script src="ui.js?v=20260306"></script>
 </body>
 </html>

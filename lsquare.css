@@ -20,13 +20,13 @@ body {
 	border: 1px solid red;
 	border-radius: 10px;
 }
-.toolbar {                          /* level bar  */
+.toolbar {                 /* level bar  */
 	display: flex;
 	align-items: center;
-	padding-left : 60px;
+	padding-left : 30px;
 }
 
-.btn {								/* level btn's  */
+.btn {						/* level btn's  */
     padding: 4px 8px;
     margin: 10px;
 	max-height:10 px;
@@ -38,25 +38,25 @@ body {
 	color:white;
 }
 .level.active {
-	background: #FF9800; 	/* SelectedBg */
+	background: #FF9800; 	/* Selected */
 	color: white;
 }
 .btn:hover {
-  background: #FF9800; /* oranje */
+  background: #FF9800; 		/* oranje */
 }
 
 .btn:disabled {
   opacity: 0.4;
   cursor: default;
 }
-.toolbar2 {								/* statusbar icon btn's Joker etc ... */
+.toolbar2 {					/* statusbar icon btn's Joker etc ... */
   width: 100%;
   height: 60px;
   align-items: center;
   background: rgba(0, 255, 0, 0.2); 
 }
 
-.icons {								/*  icons in toolbar 2   */
+.icons {					/*  icons in toolbar 2   */
   display: flex;
   align-items: center; 
   gap: 40px;
@@ -66,8 +66,7 @@ body {
   width: min(90vw,300px);
 }
 .icon-btn {
-    width: 25px;
-    height: auto;
+    width:30px;
     padding: 0;
     border: none;
     background: none;
@@ -82,7 +81,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;   /* klik gaat nog steeds naar cell */
+  pointer-events: none;   	/* klik gaat nog steeds naar cell */
 }
 .joker img {
   width: 50%;
@@ -112,8 +111,7 @@ body {
   pointer-events: none; /* zodat klikken op de afbeelding de knop activeert */
 }
 
-/* De messagebar zelf */
-#messageBar {
+#messageBar {				/* De messagebar zelf */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -126,29 +124,24 @@ body {
   border: 1px solid orange;
 }
 
-/* De hoofdtekst */
-#messageText {
+#messageText {				/* De hoofdtekst */
   display: flex;
   flex-direction: row;
   font-size: 16px;
-  gap: 4px;                          /* afstand tussen JA en NEE */
-  justify-content: flex-end;         /* rechts uitlijnen */
+  gap: 4px;                      /* afstand tussen JA en NEE */
+  justify-content: flex-end;     /* rechts uitlijnen */
   align-items: center;
   font-weight: 500;
 }
 
-/* De container voor extra knoppen */
-#messageExtra {
+#messageExtra {				/* De container voor ja/nee */
   display: flex;
-  gap: 10px;                 /* afstand tussen JA en NEE */
+  gap: 5px;                 /* afstand tussen JA en NEE */
   justify-content: flex-end; /* rechts uitlijnen */
   max-width: 120px;          /* DIT is de fix */
 }
 
-/* JA/NEE knoppen */
-
-
-#confirmYes {
+#confirmYes {				/* JA/NEE knoppen */
   background: #2ecc71;
   color: white;
   padding: 2px 14px;
@@ -170,8 +163,7 @@ body {
   font-weight: 600;
 }
 
-/* Taalvlaggen */
-.lang-select {
+.lang-select {				/* Taalvlaggen */
   display: flex;
   gap: 10px;
 }
@@ -191,6 +183,17 @@ body {
   transform: scale(1.15);
 }
 
+#toolbar3 {											/*   stats   */
+    display: none; /* start onzichtbaar */
+    width: 100%;
+	font-size: 13px;
+    max-width: 420px;
+    margin: 6px auto;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #board {
   display: grid !important;
   grid-template-columns: repeat(7, 42px) !important;
@@ -208,7 +211,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px; /* witruimte */
+  padding: 5px; /* witruimte */
   box-sizing: border-box;
   cursor: pointer;
   transition: background 0.15s ease;
@@ -223,25 +226,15 @@ body {
 .cell-inner {
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
 }
 
 .cell.selected {
   background: orange; /* zachte oranje tint */
 }
-
-#toolbar3 {											/*   stats   */
-    display: none; /* start onzichtbaar */
-    width: 100%;
-    max-width: 420px;
-    margin: 6px auto;
-    display: flex !important;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-
 .icon-btn img {
     width: 100% !important;
     height: 100% !important;
@@ -324,3 +317,4 @@ body {
 #fireworksCanvas.hidden {
     display: none;
 }
+

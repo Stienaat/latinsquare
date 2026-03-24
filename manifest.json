@@ -1,6 +1,6 @@
 {
-  "name": "Latin Square",
-  "short_name": "LatinSq",
+  "name": "latin square",
+  "short_name": "latinSq",
   "start_url": "/latinsquare/",
   "display": "standalone",
   "background_color": "#000000",

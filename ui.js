@@ -2,6 +2,47 @@
 //  GLOBALE CONSTANTEN
 // =========================
 
+let displayMode = "color"; // of "letter"
+
+document.getElementById("displayToggle").addEventListener("click", () => {
+    displayMode = displayMode === "color" ? "letter" : "color";
+    updateDisplayToggleIcon();
+    render(); // gewoon opnieuw renderen, jouw flow ondersteunt dit perfect
+});
+
+function updateDisplayToggleIcon() {
+    const btn = document.getElementById("displayToggle");
+    btn.textContent = displayMode === "color" ? "🎨" : "🔢";
+}
+
+function applyDisplayMode(inner, value) {
+    if (displayMode === "color") {
+        inner.style.background = palette[value];
+        inner.style.color = "transparent"; // geen tekst
+        inner.textContent = "";
+    }
+
+    if (displayMode === "letter") {
+        const bg = palette[value];
+        inner.style.background = bg;
+        inner.style.color = getContrastColor(bg);
+        inner.textContent = value; // of letter
+    }
+}
+
+function getContrastColor(hexColor) {
+    // hex → RGB
+    const c = hexColor.substring(1); 
+    const r = parseInt(c.substr(0, 2), 16);
+    const g = parseInt(c.substr(2, 2), 16);
+    const b = parseInt(c.substr(4, 2), 16);
+
+    // luminantie
+    const luminance = (0.299*r + 0.587*g + 0.114*b) / 255;
+
+    return luminance > 0.5 ? "#000" : "#fff"; // licht → zwart, donker → wit
+}
+
 //  rood  blauw  groen   geel   paars   oranje   bleekblauw
 const palette = [
   "#DC3545", "#00AFF0", "#00FF00",
@@ -230,7 +271,8 @@ function render() {
 
     const inner = document.createElement("div");
     inner.className = "cell-inner";
-    inner.style.background = palette[value];
+    applyDisplayMode(inner, value);
+
     cell.appendChild(inner);
 
     if (hintIndices.has(idx)) {
